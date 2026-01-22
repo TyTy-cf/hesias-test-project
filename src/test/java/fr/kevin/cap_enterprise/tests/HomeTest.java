@@ -16,6 +16,7 @@ public class HomeTest extends BaseTest {
     public void testSearchSuccess() {
         String currentUrl = new HomePage(driver) // return HomePage
                 .searchItem("Cyberpunk") // return SearchResultPage
+                .getCurrentUrl(); // return the currentUrl (String)
 
         assertTrue(currentUrl.contains("term=Cyberpunk"));
     }

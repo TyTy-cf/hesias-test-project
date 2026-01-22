@@ -15,7 +15,10 @@ public class HomePage extends BasePage {
 
     public SearchResultPage searchItem(String search) {
         goTo(ROOT_URL); // Go to the URL page
-        waitClick(refuseCookies).click(); // wait for the "refuseCookie" button to be clickable and click it
+        String headless = System.getenv("HEADLESS");
+        if ("true".equalsIgnoreCase(headless)) {
+            waitClick(refuseCookies).click(); // wait for the "refuseCookie" button to be clickable and click it
+        }
         type(inputSearch, search); // type into the search input
         waitClick(submitBtn).click(); // wait for the submit btn to be clikable and click it
         return new SearchResultPage(this.driver); // after we've done the search, redirect top SearchResultPage

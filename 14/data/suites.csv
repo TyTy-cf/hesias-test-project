@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"Click on the search button, then type 'Cyberpunk' to search for it","3","testSearchSuccess","Suite","Fri Feb 06 15:18:15 UTC 2026","skipped","Fri Feb 06 15:18:15 UTC 2026","fr.kevin.cap_enterprise.tests.HomeTest","Test","fr.kevin.cap_enterprise.tests.HomeTest","testSearchSuccess"
+"","2","setUp","Suite","Fri Feb 06 15:18:15 UTC 2026","broken","Fri Feb 06 15:18:15 UTC 2026","fr.kevin.cap_enterprise.tests.HomeTest","Test","fr.kevin.cap_enterprise.tests.HomeTest","setUp"
+"Click on the search button, then type 'Arc raider' to search for it","3","testSearchFailed","Suite","Fri Feb 06 15:18:15 UTC 2026","skipped","Fri Feb 06 15:18:15 UTC 2026","fr.kevin.cap_enterprise.tests.HomeTest","Test","fr.kevin.cap_enterprise.tests.HomeTest","testSearchFailed"

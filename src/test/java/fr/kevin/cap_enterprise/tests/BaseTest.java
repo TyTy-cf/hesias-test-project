@@ -10,22 +10,23 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class BaseTest {
 
     protected ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     @BeforeMethod
-    protected void setUp() throws MalformedURLException {
+    protected void setUp() throws MalformedURLException, URISyntaxException {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless=new");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
-//        options.addArguments("--disable-gpu");
+        options.addArguments("--disable-gpu");
         options.addArguments("--window-size=1920,1080");
 
-        driver.set(new RemoteWebDriver(new URL("http://localhost:4444"), options));
+        driver.set(new RemoteWebDriver(new URI("http://localhost:4444").toURL(), options));
         driver.get().manage().window().maximize();
     }
 

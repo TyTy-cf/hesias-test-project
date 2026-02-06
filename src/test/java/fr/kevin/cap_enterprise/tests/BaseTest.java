@@ -2,19 +2,19 @@ package fr.kevin.cap_enterprise.tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Attachment;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
 public class BaseTest {
 
     protected WebDriver driver;
 
-    @BeforeEach
+    @BeforeTest
     protected void setUp() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
@@ -32,7 +32,7 @@ public class BaseTest {
         driver.manage().window().maximize();
     }
 
-    @AfterEach
+    @AfterTest
     public void quit() {
         if (driver != null) {
             try {

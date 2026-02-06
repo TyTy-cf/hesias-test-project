@@ -1,52 +1,55 @@
 package fr.kevin.cap_enterprise.tests;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class BaseTest {
 
-    protected WebDriver driver;
+    protected ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
-    @BeforeTest
-    protected void setUp() {
-        WebDriverManager.chromedriver().setup();
+    @BeforeMethod
+    protected void setUp() throws MalformedURLException {
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+//        options.addArguments("--disable-gpu");
+        options.addArguments("--window-size=1920,1080");
 
-        String headless = System.getenv("HEADLESS");
-        if ("true".equalsIgnoreCase(headless)) {
-            options.addArguments("--headless=new");
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
-            options.addArguments("--disable-gpu");
-            options.addArguments("--window-size=1920,1080");
-        }
-
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
+        String hubUrl = System.getProperty("hub.url", "http://localhost:4444");
+        driver.set(new RemoteWebDriver(new URL(hubUrl), options));
+        driver.get().manage().window().maximize();
     }
 
-    @AfterTest
+    @AfterMethod
     public void quit() {
-        if (driver != null) {
+        WebDriver webDriver = driver.get();
+        if (webDriver != null) {
             try {
                 saveScreenshot();
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-            driver.quit();
+            webDriver.quit();
+            driver.remove();
         }
     }
 
     @Attachment(fileExtension = ".png", type = "image/png", value = "Screenshot of the test")
     public byte[] saveScreenshot() {
-        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+        return ((TakesScreenshot) driver.get()).getScreenshotAs(OutputType.BYTES);
     }
 
+    protected WebDriver getDriver() {
+        return driver.get();
+    }
 }

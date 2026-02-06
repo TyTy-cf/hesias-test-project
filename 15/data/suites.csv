@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","2","setUp","Suite","Fri Feb 06 15:25:49 UTC 2026","broken","Fri Feb 06 15:25:49 UTC 2026","fr.kevin.cap_enterprise.tests.HomeTest","Test","fr.kevin.cap_enterprise.tests.HomeTest","setUp"
+"","0","setUp","Suite","Fri Feb 06 15:25:49 UTC 2026","broken","Fri Feb 06 15:25:49 UTC 2026","fr.kevin.cap_enterprise.tests.SearchResultTest","Test","fr.kevin.cap_enterprise.tests.SearchResultTest","setUp"
+"","1","testChangeFilters","Suite","Fri Feb 06 15:25:49 UTC 2026","skipped","Fri Feb 06 15:25:49 UTC 2026","fr.kevin.cap_enterprise.tests.SearchResultTest","Test","fr.kevin.cap_enterprise.tests.SearchResultTest","testChangeFilters"
+"Click on the search button, then type 'Arc raider' to search for it","4","testSearchFailed","Suite","Fri Feb 06 15:25:49 UTC 2026","skipped","Fri Feb 06 15:25:49 UTC 2026","fr.kevin.cap_enterprise.tests.HomeTest","Test","fr.kevin.cap_enterprise.tests.HomeTest","testSearchFailed"
+"Click on the search button, then type 'Cyberpunk' to search for it","1","testSearchSuccess","Suite","Fri Feb 06 15:25:49 UTC 2026","skipped","Fri Feb 06 15:25:49 UTC 2026","fr.kevin.cap_enterprise.tests.HomeTest","Test","fr.kevin.cap_enterprise.tests.HomeTest","testSearchSuccess"

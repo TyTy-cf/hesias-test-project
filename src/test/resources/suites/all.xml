@@ -4,6 +4,7 @@
     <test name="Test">
         <classes>
             <class name="fr.kevin.cap_enterprise.tests.HomeTest"/>
+            <class name="fr.kevin.cap_enterprise.tests.SearchResultTest"/>
         </classes>
     </test>
 </suite>

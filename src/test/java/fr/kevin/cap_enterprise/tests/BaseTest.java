@@ -25,8 +25,7 @@ public class BaseTest {
 //        options.addArguments("--disable-gpu");
         options.addArguments("--window-size=1920,1080");
 
-        String hubUrl = System.getProperty("hub.url", "http://localhost:4444");
-        driver.set(new RemoteWebDriver(new URL(hubUrl), options));
+        driver.set(new RemoteWebDriver(new URL("http://localhost:4444"), options));
         driver.get().manage().window().maximize();
     }
 
